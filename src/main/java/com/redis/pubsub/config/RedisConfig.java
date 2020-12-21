@@ -13,6 +13,19 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.GenericToStringSerializer;
 
+/*
+    A documentão diz que com dependencia do DATA REDIS já possuimos tudo que é necessário para trabalhar com PubSub
+    utilizando o REDIS.
+
+    * Um connection factory
+        - Neste caso já pegamos o que o Spring cria por default é fizemos a injecção do mesmo via parametro no metodo.
+    * Um message listener container
+        - Neste caso configuramos o BEAN: RedisMessageListenerContainer;
+    *Um Redis template
+        - Foi configurado manualmente também o BEAN: RedisTemplate, é utilizado para fazer o publish da mensagem.
+        Existem outras implementações concetras do RedisTemplate, neste projeto decidimos utilizar a RedisTemplate.
+ */
+
 @Configuration
 public class RedisConfig {
 
