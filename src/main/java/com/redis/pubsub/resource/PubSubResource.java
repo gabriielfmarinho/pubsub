@@ -1,6 +1,5 @@
 package com.redis.pubsub.resource;
 
-
 import com.redis.pubsub.redis.MessagePublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;

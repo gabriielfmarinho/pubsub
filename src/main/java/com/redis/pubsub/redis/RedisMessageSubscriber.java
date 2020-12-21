@@ -13,7 +13,7 @@ public class RedisMessageSubscriber implements MessageListener {
     }
 
     @Override
-    public void onMessage(Message message, byte[] pattern) {
+    public void onMessage(final Message message, byte[] pattern) {
         log.info("Message received, message={}, pattern={}", message, pattern);
     }
 }
