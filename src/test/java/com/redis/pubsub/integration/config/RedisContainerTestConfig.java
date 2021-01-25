@@ -11,8 +11,14 @@ public class RedisContainerTestConfig implements ApplicationContextInitializer<C
     public GenericContainer<?> initializeContainer() {
         final GenericContainer<?> redisContainer = new GenericContainer<>(DockerImageName.parse("redis"))
                 .withExposedPorts(6379);
-        redisContainer.start();
+        if (isNotRunning(redisContainer)) {
+            redisContainer.start();
+        }
         return redisContainer;
+    }
+
+    private boolean isNotRunning(GenericContainer<?> redisContainer) {
+        return !redisContainer.isRunning();
     }
 
     @Override

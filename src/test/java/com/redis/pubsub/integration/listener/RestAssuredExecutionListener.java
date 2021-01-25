@@ -1,8 +1,10 @@
 package com.redis.pubsub.integration.listener;
 
+import groovy.transform.builder.Builder;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
+import org.springframework.boot.test.autoconfigure.data.cassandra.DataCassandraTest;
 import org.springframework.test.context.TestContext;
 import org.springframework.test.context.TestExecutionListener;
 
@@ -19,5 +21,22 @@ public class RestAssuredExecutionListener implements TestExecutionListener {
                 .setAccept(ContentType.JSON)
                 .setPort(port)
                 .build();
+    }
+
+
+
+
+
+
+    public class Carro {
+        private String nome;
+
+        private String cor;
+    }
+
+    class CarroDTO {
+        private String nome;
+
+        private String cor;
     }
 }
